@@ -19,7 +19,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet("/upload")
-@MultipartConfig(maxFileSize = 5 * 1024 * 1024)
+@MultipartConfig(
+        fileSizeThreshold = 1024 * 1024,
+        maxRequestSize = 30 * 1024 * 1024
+)
 public class FileUpload extends HttpServlet {
 
     @Override
@@ -29,7 +32,10 @@ public class FileUpload extends HttpServlet {
             Part filePart = req.getPart("file");
             String fileName = filePart.getSubmittedFileName();
             long fileSize = filePart.getSize();
-
+            //if file size > 5mb throw error
+            if (fileSize > 5 * 1024 * 1024) {
+                throw new IOException("File tải lên không được vượt quá 5mb.");
+            }
             // Save file to uploads directory
             String uploadsDir = getServletContext().getRealPath("/uploads");
             Files.createDirectories(Paths.get(uploadsDir));
