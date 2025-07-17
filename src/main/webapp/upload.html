@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tải Tệp Lên</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1><i class="fas fa-cloud-upload-alt"></i> Tải Tệp Lên</h1>
+        <p>Chọn tệp từ máy tính của bạn để tải lên hệ thống</p>
+    </header>
+
+    <div class="upload-form">
+        <form action="upload" method="post" enctype="multipart/form-data">
+            <label for="file-upload"><i class="fas fa-file-alt"></i> Chọn tệp:</label>
+            <input type="file" name="file" id="file-upload">
+            <button type="submit" class="btn btn-upload"><i class="fas fa-upload"></i> Tải lên</button>
+        </form>
+    </div>
+
+    <div class="text-center mt-20">
+        <a href="result.jsp" class="btn"><i class="fas fa-list"></i> Xem danh sách tệp</a>
+    </div>
+</div>
+</body>
+</html>
